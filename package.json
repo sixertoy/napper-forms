@@ -4,11 +4,12 @@
   "description": "React Form Components",
   "author": "Matthieu Lassalvy <sixertoy.github@gmail.com>",
   "license": "ISC",
-  "main": "lib/bundle.min.js",
+  "main": "dist/bundle.min.js",
   "engines": {
     "node": "^10.6.0"
   },
   "files": [
+    "dist",
     "lib"
   ],
   "dependencies": {
@@ -31,6 +32,7 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "4.2.0",
@@ -60,8 +62,8 @@
   },
   "scripts": {
     "test": "",
-    "prebuild": "rm -rf ./lib",
-    "build": "babel ./src -d ./lib/@iziges",
-    "rollup": "rollup -c"
+    "build:dev": "babel ./src -d ./lib/@iziges",
+    "build": "rollup -c",
+    "prepare": "yarn run build"
   }
 }
