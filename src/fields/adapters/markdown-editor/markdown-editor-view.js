@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Editor } from 'react-draft-wysiwyg';
-import { debounce } from '@iziges/smarter-core';
+import { debounce } from '@iziges/napper-core';
 
 import { parseMarkdown, stringifyMarkdown } from './markdown-editor-utils';
 import {

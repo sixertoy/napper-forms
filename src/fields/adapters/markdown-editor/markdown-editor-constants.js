@@ -1,4 +1,4 @@
-import { mirrorKeys, ucfirst } from '@iziges/smarter-core';
+import { mirrorKeys, ucfirst } from '@iziges/napper-core';
 
 export const MARKDOWN_DEBOUNCE_MS = 500;
 export const MARKDOWN_VIEWS = ['markdown', 'raw'];
