@@ -64,8 +64,6 @@
   },
   "scripts": {
     "test": "",
-    "build:dev": "babel ./src -d ./lib/@iziges",
-    "build": "rollup -c",
-    "prepare": "yarn run build"
+    "build": "rollup -c"
   }
 }
