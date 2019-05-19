@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { uniqKeyId } from '@iziges/smarter-core';
+import { uniqKeyId } from '@iziges/napper-core';
 
 const parseErrors = err => {
   if (Array.isArray(err)) return err;
