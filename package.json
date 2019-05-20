@@ -65,15 +65,20 @@
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-node-resolve": "^5.0.0",
     "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-uglify": "^6.0.2",
+    "rollup-plugin-terser": "^4.0.4",
     "stylelint": "^10.0.1",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-order": "^3.0.0",
-    "stylelint-scss": "^3.6.1"
+    "stylelint-scss": "^3.6.1",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addons": "^5.0.11"
   },
   "scripts": {
     "test": "jest",
+    "start": "rollup -c -w",
     "build": "rollup -c",
-    "storybook": "start-storybook -p 9002 -c .storybook"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   }
 }

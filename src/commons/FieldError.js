@@ -2,14 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { uniqKeyId } from '@iziges/napper-core';
 
-const parseErrors = err => {
+function parseErrors(err) {
   if (Array.isArray(err)) return err;
   if (typeof err === 'string') return [err];
   return err;
-};
+}
 
-// NOTE: meta props
-// https://github.com/final-form/final-form#fieldstate
+/*
+
+  NOTE: meta props
+  https://github.com/final-form/final-form#fieldstate
+
+*/
 const FieldError = ({
   error,
   initial,
@@ -49,7 +53,7 @@ FieldError.propTypes = {
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ]),
-  initial: PropTypes.any, // eslint-disable-line
+  initial: PropTypes.any,
   pristine: PropTypes.bool,
   submitError: PropTypes.oneOfType([
     PropTypes.string,
