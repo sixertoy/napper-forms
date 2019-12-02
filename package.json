@@ -67,6 +67,7 @@
     "stylelint-scss": "^3.13.0"
   },
   "scripts": {
+    "cleanup": "rm -rf node_modules && rm yarn.lock",
     "test": "jest",
     "dev": "NODE_ENV=development rollup -c -w",
     "build": "rm -rf lib && NODE_ENV=production rollup -c",
