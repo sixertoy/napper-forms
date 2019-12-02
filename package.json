@@ -1,6 +1,6 @@
 {
   "name": "@iziges/napper-forms",
-  "version": "0.2.14",
+  "version": "0.2.15",
   "description": "React Form Components",
   "author": "Matthieu Lassalvy <sixertoy.github@gmail.com>",
   "license": "ISC",
@@ -31,6 +31,7 @@
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/plugin-proposal-export-default-from": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
     "autoprefixer": "^9.7.3",
     "babel-plugin-module-resolver": "^3.2.0",
     "cssnano": "^4.1.10",
