@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { uniqKeyId } from '@iziges/napper-core';
+// import { uniqKeyId } from '@iziges/napper-core';
 
 function parseErrors(err) {
   if (Array.isArray(err)) return err;
@@ -32,7 +32,7 @@ const FieldError = ({
     <span className="smarter-form-error">
       {shouldShowError &&
         errors.map((msg, index) => (
-          <span className="is-block" key={uniqKeyId('error', index)}>
+          <span className="is-block" key={`error::${index}`}>
             {msg}
           </span>
         ))}

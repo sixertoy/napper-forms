@@ -1,0 +1,7 @@
+{
+  "lib/bundle.min.js": {
+    "bundled": 29624,
+    "minified": 22587,
+    "gzipped": 5500
+  }
+}
