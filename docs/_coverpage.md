@@ -1,6 +1,6 @@
 <!-- ![logo](_media/icon.svg) -->
 
-# Napper Admin v<small>x.x.x</small>
+# Napper Forms v<small>x.x.x</small>
 
-[GitHub](https://github.com/sixertoy/napper-core)
+[GitHub](https://github.com/sixertoy/napper-forms)
 [Start](/pages/quick-start.md)

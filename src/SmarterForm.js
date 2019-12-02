@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Form } from 'react-final-form';
 import onErrorFocusDecorator from 'final-form-focus';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Form } from 'react-final-form';
 
 import { FormControls } from './commons';
 import { composeFormValidator } from './utils';
@@ -20,12 +20,12 @@ class SmarterForm extends React.PureComponent {
     const validate = composeFormValidator(validators);
     return (
       <Form
-        name={name}
-        onSubmit={onSubmit}
-        validate={validate}
         decorators={decorators}
         initialValues={initialValues}
-        render={({
+        name={name}
+        onSubmit={onSubmit}
+        validate={validate}>
+        {({
           dirty,
           form,
           handleSubmit,
@@ -33,11 +33,10 @@ class SmarterForm extends React.PureComponent {
           pristine,
           submitError,
           submitting,
-          values,
+          // values,
         }) => {
           const disabled = submitting;
           const canSubmit = !(pristine || invalid);
-          console.log('Form values => ', values);
           return (
             <form onSubmit={handleSubmit}>
               <div>{children}</div>
@@ -45,15 +44,15 @@ class SmarterForm extends React.PureComponent {
               {controls && (
                 <FormControls
                   canReset={dirty}
+                  canSubmit={canSubmit}
                   disabled={disabled}
                   onReset={form.reset}
-                  canSubmit={canSubmit}
                 />
               )}
             </form>
           );
         }}
-      />
+      </Form>
     );
   }
 }

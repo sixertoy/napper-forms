@@ -1,10 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { Field } from 'react-final-form';
 
 import { FieldError, FieldLabel } from '../commons';
-import { isNotEmptyString } from '../validators';
 import { composeFieldValidators } from '../utils';
+import { isNotEmptyString } from '../validators';
 
 export const DEFAULT_VALIDATORS = [isNotEmptyString];
 
@@ -31,10 +31,10 @@ class TextInput extends React.PureComponent {
               />
               <input
                 {...input}
-                type="text"
-                id={name}
                 disabled={disabled}
+                id={name}
                 placeholder={placeholder}
+                type="text"
               />
               <FieldError {...meta} />
             </label>

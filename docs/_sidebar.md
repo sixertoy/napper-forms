@@ -2,6 +2,6 @@
 
 - [**Quick start**](pages/quick-start.md)
 
-- [Smart Table](pages/smart-table.md)
+- [Fields](pages/fields.md)
 
-- [Github](https://github.com/sixertoy/napper-admin)
+- [Github](https://github.com/sixertoy/napper-forms)

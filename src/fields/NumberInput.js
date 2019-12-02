@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { Field } from 'react-final-form';
 
 import { FieldError, FieldLabel } from '../commons';
@@ -29,18 +29,18 @@ class NumberInput extends React.PureComponent {
           <div className={className}>
             <label htmlFor={name}>
               <FieldLabel
-                label={label}
                 disabled={disabled}
+                label={label}
                 required={required}
               />
               <input
                 {...input}
-                type="number"
+                disabled={disabled}
                 max={max}
                 min={min}
-                step={step}
-                disabled={disabled}
                 placeholder={placeholder}
+                step={step}
+                type="number"
               />
               <FieldError {...meta} />
             </label>

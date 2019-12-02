@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 class FormControls extends React.PureComponent {
   render() {
@@ -10,14 +10,14 @@ class FormControls extends React.PureComponent {
       <div>
         {useResetButton && (
           <button
+            disabled={disabled || !canReset}
             type="button"
-            onClick={onReset}
-            disabled={disabled || !canReset}>
+            onClick={onReset}>
             {buttons.cancel}
           </button>
         )}
         {useSubmitButton && (
-          <button type="submit" disabled={disabled || !canSubmit}>
+          <button disabled={disabled || !canSubmit} type="submit">
             {buttons.submit}
           </button>
         )}

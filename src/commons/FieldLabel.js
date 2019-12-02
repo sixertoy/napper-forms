@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const FieldLabel = ({ disabled, label, required }) => {
   let cssclass = 'smarter-form-label';

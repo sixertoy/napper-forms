@@ -3,10 +3,10 @@
 #### Requirements
 
 - NodeJS v10.6.0 || v12.13.1
-- [React Router v5.1.2](https://reacttraining.com/react-router/web/guides/quick-start)
+- [react-final-form](https://github.com/final-form/react-final-form)
 
 #### Installation
 
 ```bash
-npx install-peerdeps @iziges/napper-admin
+yarn add https://github.com/sixertoy/napper-forms.git
 ```
