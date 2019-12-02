@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { Field } from 'react-final-form';
 
 import { FieldError } from '../commons';
@@ -9,7 +9,6 @@ const noop = () => {};
 const HiddenInput = ({ className, name, validator, ...rest }) => (
   <Field
     name={name}
-    validate={validator}
     render={({ input, meta }) => {
       const props = { ...input, ...rest };
       return (
@@ -19,6 +18,7 @@ const HiddenInput = ({ className, name, validator, ...rest }) => (
         </div>
       );
     }}
+    validate={validator}
   />
 );
 

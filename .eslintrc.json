@@ -29,16 +29,6 @@
     "sort-keys-fix/sort-keys-fix": ["error", "asc"],
     "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/jsx-sort-props": [
-      "error",
-      {
-        "callbacksLast": false,
-        "shorthandFirst": true,
-        "shorthandLast": false,
-        "ignoreCase": true,
-        "noSortAlphabetically": false,
-        "reservedFirst": false
-      }
-    ]
+    "react/jsx-sort-props": "error"
   }
 }

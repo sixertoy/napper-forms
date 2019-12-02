@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Field } from 'react-final-form';
+import { createUseStyles } from 'react-jss';
 
 import { FieldError, FieldLabel } from '../commons';
 import { composeFieldValidators } from '../utils';
 import { includesRange, isNumber } from '../validators';
 
 export const DEFAULT_VALIDATORS = [isNumber];
+
+const styles = {};
 
 class NumberInput extends React.PureComponent {
   render() {
@@ -80,4 +83,4 @@ NumberInput.propTypes = {
   toot: PropTypes.bool,
 };
 
-export default NumberInput;
+export default createUseStyles(styles)(NumberInput);
