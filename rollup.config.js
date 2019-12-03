@@ -30,8 +30,8 @@ export default {
           .then(result => result.css),
     }),
     resolve(),
-    commonJS({ include: 'node_modules/**' }),
     babel({ exclude: 'node_modules/**' }),
+    commonJS({ include: 'node_modules/**' }),
     terser({
       compress: !isDevelopment,
       mangle: !isDevelopment,
