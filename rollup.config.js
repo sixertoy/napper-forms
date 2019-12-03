@@ -7,7 +7,9 @@ import resolve from 'rollup-plugin-node-resolve';
 import sass from 'rollup-plugin-sass';
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 import { terser } from 'rollup-plugin-terser';
+import dotenv from 'dotenv';
 
+dotenv.config();
 import { dependencies, main, peerDependencies } from './package.json';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
