@@ -1,6 +1,6 @@
-import React from 'react';
+import { uniqKeyId } from '@iziges/napper-core/lib/utils';
 import PropTypes from 'prop-types';
-import { uniqKeyId } from '@iziges/napper-core';
+import React from 'react';
 
 import { MARKDOWN_EDITOR_VIEWS } from './markdown-editor-constants';
 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-// import { uniqKeyId } from '@iziges/napper-core';
+// import { uniqKeyId } from '@iziges/napper-core/lib/utils';
 
 function parseErrors(err) {
   if (Array.isArray(err)) return err;

@@ -1,4 +1,5 @@
-import { mirrorKeys, ucfirst } from '@iziges/napper-core';
+import { mirrorKeys } from '@iziges/napper-core/lib/objects';
+import { ucfirst } from '@iziges/napper-core/lib/strings';
 
 export const MARKDOWN_DEBOUNCE_MS = 500;
 export const MARKDOWN_VIEWS = ['markdown', 'raw'];

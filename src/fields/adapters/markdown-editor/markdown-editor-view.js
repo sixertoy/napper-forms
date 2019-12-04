@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Editor } from 'react-draft-wysiwyg';
-import { debounce } from '@iziges/napper-core';
+import { debounce } from '@iziges/napper-core/lib/utils';
 
 import { parseMarkdown, stringifyMarkdown } from './markdown-editor-utils';
 import {
@@ -12,19 +12,22 @@ import {
 // NOTE: react-draft-wysiwyg documentation
 // https://jpuri.github.io/react-draft-wysiwyg/#/docs
 class RichTextEditorMarkdown extends React.PureComponent {
-  updateInputAfterStateChanges = debounce(() => {
-    const { editorState } = this.state;
-    const { onChangeHandler } = this.props;
-    const rawvalue = stringifyMarkdown(editorState);
-    onChangeHandler(rawvalue);
-  }, MARKDOWN_DEBOUNCE_MS);
-
   constructor(props) {
     super(props);
     const { content } = props;
     const editorState = parseMarkdown(content || '');
     this.state = { editorState };
   }
+
+  updateInputAfterStateChanges = () => {
+    const debounced = debounce(() => {
+      const { editorState } = this.state;
+      const { onChangeHandler } = this.props;
+      const rawvalue = stringifyMarkdown(editorState);
+      onChangeHandler(rawvalue);
+    }, MARKDOWN_DEBOUNCE_MS);
+    return debounced;
+  };
 
   onEditorStateChange = editorState => {
     this.setState({ editorState }, this.updateInputAfterStateChanges);
