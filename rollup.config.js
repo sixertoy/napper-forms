@@ -13,8 +13,6 @@ import { terser } from 'rollup-plugin-terser';
 import { dependencies, peerDependencies } from './package.json';
 
 dotenv.config();
-
-dotenv.config();
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 const plugins = (umd = false) => [
@@ -25,7 +23,10 @@ const plugins = (umd = false) => [
         .process(css, { from: './src/scss/styles.scss' })
         .then(result => result.css),
   }),
-  resolve({ browser: true }),
+  resolve({
+    browser: true,
+    extensions: ['.js', '.jsx', '.json'],
+  }),
   babel({ exclude: 'node_modules/**' }),
   commonJS({ include: /node_modules/ }),
   umd ? sizeSnapshot({ printInfo: isDevelopment }) : null,
@@ -43,17 +44,17 @@ export default [
     external,
     input: './src/index.js',
     output: {
-      esModule: false,
-      file: 'dist/bundle.min.js',
+      file: './dist/bundle.min.js',
       format: 'umd',
-      name: 'napper-core',
+      name: 'napper-forms',
     },
     plugins: plugins(true),
   },
   {
     external,
     input: {
-      index: './src/index.js',
+      fields: './src/fields/index.js',
+      'lib/index': './src/index.js',
     },
     output: { dir: './lib', format: 'esm' },
     plugins: plugins(),

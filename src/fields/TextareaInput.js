@@ -1,56 +1,57 @@
-import React from 'react';
+import { withStyles } from '@iziges/napper-core-react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { Field } from 'react-final-form';
+import React from 'react';
 
 import { FieldError, FieldLabel } from '../commons';
-import { isNotEmptyString } from '../validators';
-import { composeFieldValidators } from '../utils';
+import InputPropTypes from '../types';
+import { buildStyles } from '../utils';
+//
+const jss = buildStyles(null, 'textinput');
 
-const DEFAULT_VALIDATORS = [isNotEmptyString];
-
-class TextareaInput extends React.PureComponent {
+class TextAreaInput extends React.PureComponent {
   render() {
     const {
       className,
+      classes,
       disabled,
+      input,
       label,
       maxlength,
-      name,
+      meta,
       placeholder,
       readonly,
       required,
     } = this.props;
-    const validators = composeFieldValidators(required, DEFAULT_VALIDATORS);
     return (
-      <Field name={name} validate={validators}>
-        {({ input, meta }) => (
-          <div className={className}>
-            <label htmlFor={name}>
-              <FieldLabel
-                disabled={disabled}
-                label={label}
-                required={required}
-              />
-              <textarea
-                {...input}
-                wrap="soft"
-                disabled={disabled}
-                readOnly={readonly}
-                maxLength={maxlength}
-                placeholder={placeholder}
-              />
-              <FieldError {...meta} />
-            </label>
+      <div
+        className={classnames(
+          jss.classname,
+          classes['field-container'],
+          className
+        )}>
+        <label className={classes['field-wrapper']} htmlFor={input.name}>
+          <FieldLabel disabled={disabled} label={label} required={required} />
+          <div className={classes['field-element']}>
+            <textarea
+              {...input}
+              disabled={disabled}
+              maxLength={maxlength}
+              placeholder={placeholder}
+              readOnly={readonly}
+              wrap="soft"
+            />
           </div>
-        )}
-      </Field>
+        </label>
+        <FieldError {...meta} />
+      </div>
     );
   }
 }
 
-TextareaInput.defaultProps = {
+TextAreaInput.defaultProps = {
   autoComplete: false,
-  className: 'm12',
+  className: '',
   disabled: false,
   label: null,
   maxlength: Infinity,
@@ -59,13 +60,15 @@ TextareaInput.defaultProps = {
   required: false,
 };
 
-TextareaInput.propTypes = {
+TextAreaInput.propTypes = {
   autoComplete: PropTypes.bool,
   className: PropTypes.string,
+  classes: PropTypes.shape().isRequired,
   disabled: PropTypes.bool,
+  input: InputPropTypes.isRequired,
   label: PropTypes.string,
   maxlength: PropTypes.number,
-  name: PropTypes.string.isRequired,
+  meta: PropTypes.shape().isRequired,
   placeholder: PropTypes.string,
   readonly: PropTypes.bool,
   required: PropTypes.oneOfType([
@@ -75,4 +78,4 @@ TextareaInput.propTypes = {
   ]),
 };
 
-export default TextareaInput;
+export default withStyles(jss.styles)(TextAreaInput);

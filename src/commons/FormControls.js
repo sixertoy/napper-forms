@@ -1,15 +1,34 @@
+import { withStyles } from '@iziges/napper-core-react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { NAPPER_INPUTS_BASE_CLASSNAME } from '../constants';
+
+const DEFAULT_CLASSNAME = `${NAPPER_INPUTS_BASE_CLASSNAME}-controls`;
+
+const DEFAULT_STYLES = {
+  container: {},
+};
+
 class FormControls extends React.PureComponent {
   render() {
-    const { buttons, canReset, canSubmit, disabled, onReset } = this.props;
+    const {
+      buttons,
+      canReset,
+      canSubmit,
+      classes,
+      disabled,
+      onReset,
+    } = this.props;
     const useSubmitButton = buttons.submit;
     const useResetButton = buttons.cancel && onReset;
+    const classname = classnames(DEFAULT_CLASSNAME, classes.container);
     return (
-      <div>
+      <div className={classname}>
         {useResetButton && (
           <button
+            className="cancel"
             disabled={disabled || !canReset}
             type="button"
             onClick={onReset}>
@@ -17,7 +36,10 @@ class FormControls extends React.PureComponent {
           </button>
         )}
         {useSubmitButton && (
-          <button disabled={disabled || !canSubmit} type="submit">
+          <button
+            className="submit"
+            disabled={disabled || !canSubmit}
+            type="submit">
             {buttons.submit}
           </button>
         )}
@@ -32,7 +54,6 @@ FormControls.defaultProps = {
   canSubmit: false,
   disabled: false,
   onReset: () => {},
-  // onSubmit: () => {},
 };
 
 FormControls.propTypes = {
@@ -42,9 +63,9 @@ FormControls.propTypes = {
   }),
   canReset: PropTypes.bool,
   canSubmit: PropTypes.bool,
+  classes: PropTypes.shape().isRequired,
   disabled: PropTypes.bool,
   onReset: PropTypes.func,
-  // onSubmit: PropTypes.func,
 };
 
-export default FormControls;
+export default withStyles(DEFAULT_STYLES)(FormControls);

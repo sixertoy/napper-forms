@@ -7,9 +7,9 @@ import { FieldError, FieldLabel } from '../commons';
 import InputPropTypes from '../types';
 import { buildStyles } from '../utils';
 
-const jss = buildStyles(null, 'textinput');
+const jss = buildStyles(null, 'urlinput');
 
-class NumberInput extends React.PureComponent {
+class URLInput extends React.PureComponent {
   render() {
     const {
       className,
@@ -35,7 +35,7 @@ class NumberInput extends React.PureComponent {
               disabled={disabled}
               id={input.name}
               placeholder={placeholder}
-              type="number"
+              type="url"
             />
           </div>
         </label>
@@ -45,17 +45,15 @@ class NumberInput extends React.PureComponent {
   }
 }
 
-NumberInput.defaultProps = {
-  autoComplete: false,
+URLInput.defaultProps = {
   className: '',
   disabled: false,
   label: null,
-  placeholder: 'Entrer une valeur',
+  placeholder: 'Entrer an url',
   required: false,
 };
 
-NumberInput.propTypes = {
-  autoComplete: PropTypes.bool,
+URLInput.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.shape().isRequired,
   disabled: PropTypes.bool,
@@ -69,4 +67,4 @@ NumberInput.propTypes = {
   ]),
 };
 
-export default withStyles(jss.styles)(NumberInput);
+export default withStyles(jss.styles)(URLInput);

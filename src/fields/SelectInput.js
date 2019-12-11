@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Field } from 'react-final-form';
 import { uniqKeyId } from '@iziges/napper-core/lib/utils';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Field } from 'react-final-form';
 
 import { FieldError, FieldLabel } from '../commons';
-import { isRequired } from '../validators';
 import { composeFieldValidators } from '../utils';
+import { isRequired } from '../validators';
 
 class SelectInput extends React.PureComponent {
   formatSelectedValue = obj => {

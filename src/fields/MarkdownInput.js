@@ -1,12 +1,12 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { Field } from 'react-final-form';
 
 import { FieldLabel } from '../commons';
 import {
+  MARKDOWN_VIEWS,
   MarkdownEditorControls,
   MarkdownEditorView,
-  MARKDOWN_VIEWS,
   // MarkdownEditorRaw,
 } from './adapters/markdown-editor';
 

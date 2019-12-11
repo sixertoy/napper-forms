@@ -1,6 +1,15 @@
+import { withStyles } from '@iziges/napper-core-react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-// import { uniqKeyId } from '@iziges/napper-core/lib/utils';
+
+import { NAPPER_INPUTS_BASE_CLASSNAME } from '../constants';
+
+const DEFAULT_CLASSNAME = `${NAPPER_INPUTS_BASE_CLASSNAME}-error`;
+
+const DEFAULT_STYLES = {
+  container: {},
+};
 
 function parseErrors(err) {
   if (Array.isArray(err)) return err;
@@ -8,13 +17,8 @@ function parseErrors(err) {
   return err;
 }
 
-/*
-
-  NOTE: meta props
-  https://github.com/final-form/final-form#fieldstate
-
-*/
 const FieldError = ({
+  classes,
   error,
   initial,
   // modified,
@@ -25,17 +29,22 @@ const FieldError = ({
   // value,
   // visited,
 }) => {
+  console.log('initial', initial);
   const canShowError = touched || (initial && pristine);
   const shouldShowError = canShowError && (error || submitError);
   const errors = parseErrors(error || submitError);
+  const classname = classnames(DEFAULT_CLASSNAME, classes.container);
   return (
-    <span className="smarter-form-error">
+    <span className={classname}>
       {shouldShowError &&
-        errors.map((msg, index) => (
-          <span className="is-block" key={`error::${index}`}>
-            {msg}
-          </span>
-        ))}
+        errors.map((msg, index) => {
+          const key = `error::${index}`;
+          return (
+            <span className="is-block" key={key}>
+              {msg}
+            </span>
+          );
+        })}
     </span>
   );
 };
@@ -49,6 +58,7 @@ FieldError.defaultProps = {
 };
 
 FieldError.propTypes = {
+  classes: PropTypes.shape().isRequired,
   error: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
@@ -62,4 +72,4 @@ FieldError.propTypes = {
   touched: PropTypes.bool,
 };
 
-export default FieldError;
+export default withStyles(DEFAULT_STYLES)(FieldError);

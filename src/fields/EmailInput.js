@@ -1,47 +1,40 @@
-import React from 'react';
 import isemail from 'isemail';
 import PropTypes from 'prop-types';
-import { Field } from 'react-final-form';
+import React from 'react';
 
 import { FieldError, FieldLabel } from '../commons';
+import InputPropTypes from '../types';
+// import { composeFieldValidators } from '../utils';
 import { isNotEmptyString } from '../validators';
-import { composeFieldValidators } from '../utils';
 
-export const DEFAULT_VALIDATORS = [isNotEmptyString, isemail.validate];
+// export const DEFAULT_VALIDATORS = [isNotEmptyString, isemail.validate];
 
 class EmailInput extends React.PureComponent {
   render() {
     const {
       className,
       disabled,
+      input,
       label,
-      name,
       placeholder,
       required,
     } = this.props;
-    const validators = composeFieldValidators(required, DEFAULT_VALIDATORS);
+    const { name } = input;
+    // const validators = composeFieldValidators(required, DEFAULT_VALIDATORS);
     return (
-      <Field name={name} validate={validators}>
-        {({ input, meta }) => (
-          <div className={className}>
-            <label htmlFor={name}>
-              <FieldLabel
-                disabled={disabled}
-                label={label}
-                required={required}
-              />
-              <input
-                {...input}
-                id={name}
-                type="email"
-                disabled={disabled}
-                placeholder={placeholder}
-              />
-              <FieldError {...meta} />
-            </label>
-          </div>
-        )}
-      </Field>
+      <div className={className}>
+        <label htmlFor={name}>
+          <FieldLabel disabled={disabled} label={label} required={required} />
+          <input
+            {...input}
+            id={name}
+            type="email"
+            disabled={disabled}
+            placeholder={placeholder}
+          />
+          {/* <FieldError {...meta} /> */}
+        </label>
+      </div>
     );
   }
 }
@@ -59,8 +52,8 @@ EmailInput.propTypes = {
   autoComplete: PropTypes.bool,
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  input: InputPropTypes.isRequired,
   label: PropTypes.string,
-  name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   required: PropTypes.oneOfType([
     PropTypes.bool,

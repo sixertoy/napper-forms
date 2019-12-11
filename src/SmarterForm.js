@@ -1,4 +1,3 @@
-import onErrorFocusDecorator from 'final-form-focus';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Form } from 'react-final-form';
@@ -16,7 +15,7 @@ class SmarterForm extends React.PureComponent {
       onSubmit,
       validators,
     } = this.props;
-    const decorators = [onErrorFocusDecorator()];
+    const decorators = [];
     const validate = composeFormValidator(validators);
     return (
       <Form

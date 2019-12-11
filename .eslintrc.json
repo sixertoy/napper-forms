@@ -1,4 +1,10 @@
 {
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "ecmaFeatures": { "jsx": true },
+    "sourceType": "module"
+  },
   "extends": ["airbnb", "prettier", "prettier/react"],
   "plugins": [
     "prettier",
@@ -13,16 +19,28 @@
     "node": true
   },
   "rules": {
+    "arrow-parens": ["error", "as-needed"],
+    "arrow-body-style": ["error", "as-needed"],
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": true, "peerDependencies": false }
+    ],
     "prettier/prettier": "error",
     "simple-import-sort/sort": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
     "sort-imports": "off",
     "sort-keys": ["error", "asc"],
     "sort-keys-fix/sort-keys-fix": ["error", "asc"],
+    "react/forbid-prop-types": ["error", { "forbid": ["object", "any"] }],
     "react/jsx-filename-extension": [
       "error",
       { "extensions": [".js", ".jsx"] }
     ],
-    "react/jsx-props-no-spreading": "warn"
+    "react/jsx-fragments": ["error", "element"],
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-sort-props": [
+      "error",
+      { "callbacksLast": true, "shorthandFirst": true }
+    ]
   }
 }
